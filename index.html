@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bijendra Yadav — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="orb"></div>
+<div class="orb2"></div>
+<div class="orb3"></div>
+
+<nav>
+  <div class="nav-logo">BY<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div class="hero-tag">Available for opportunities</div>
+    <h1>Bijendra<span class="line2">Yadav.</span></h1>
+    <p class="hero-sub">
+      Final-year <strong>CS Engineer @ SRM (CGPA 9.28)</strong> building at the intersection of AI and full-stack development.
+      From emotion-detecting platforms to wearable health tech — I ship things that work and matter.
+      Also a <strong>published novelist</strong>.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-num">9.28</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">85%</div>
+        <div class="stat-label">ML Accuracy</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="section-tag">// work experience</div>
+  <h2 class="section-title">Where I've Worked</h2>
+  <div class="exp-card reveal">
+    <div class="exp-meta">
+      <div>
+        <div class="exp-role">Frontend Engineering Intern</div>
+        <div class="exp-company">First Melon Company — Urapakkam, Chennai</div>
+      </div>
+      <div class="exp-date">Aug 2024 – Dec 2025</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Engaged in system design and software architecture discussions — <strong>80% of proposed solutions adopted</strong> by the engineering team.</li>
+      <li>Gained hands-on exposure to industry R&D workflows through mentorship, <strong>improving task efficiency by 80%</strong>.</li>
+      <li>Completed advanced training in JavaScript and relational databases, applying learnings directly in production.</li>
+      <li>Collaborated cross-functionally across the full SDLC in an Agile product environment.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="section-tag">// projects</div>
+  <h2 class="section-title">Things I've Built</h2>
+  <div class="projects-grid reveal">
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🧠</div>
+        <div class="proj-date">Jan 2025</div>
+      </div>
+      <div class="proj-title">Mind Master</div>
+      <div class="proj-desc">AI-driven emotion detection platform with real-time GenAI content suggestions and personalized document summaries using CNN and PyPDF.</div>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">Keras</span><span class="tag">TensorFlow</span>
+        <span class="tag">OpenCV</span><span class="tag">GenAI</span><span class="tag">PyPDF</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="metric"><strong>85%</strong> Emotion accuracy</div>
+        <div class="metric"><strong>+38%</strong> User engagement</div>
+        <div class="metric"><strong>-62%</strong> Reading time</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🧤</div>
+        <div class="proj-date">Sept 2024</div>
+      </div>
+      <div class="proj-title">Anti-Tremor Gloves</div>
+      <div class="proj-desc">Wearable health-tech device using real-time EMG signal processing and ML algorithms to detect and suppress hand tremors for patients.</div>
+      <div class="proj-tags">
+        <span class="tag green">EMG Sensors</span><span class="tag green">Arduino</span>
+        <span class="tag green">Machine Learning</span><span class="tag green">Health-Tech</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="metric"><strong>Real-time</strong> Feedback</div>
+        <div class="metric"><strong>Haptic</strong> Stabilization</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">☁️</div>
+        <div class="proj-date">2022–2023</div>
+      </div>
+      <div class="proj-title">Weather App (Dockerized)</div>
+      <div class="proj-desc">Full-stack weather app with real-time OpenWeatherMap API, containerized via Docker and deployed with CI/CD using Jenkins and Terraform IaC.</div>
+      <div class="proj-tags">
+        <span class="tag">HTML/CSS/JS</span><span class="tag">Docker</span>
+        <span class="tag">Jenkins</span><span class="tag">Terraform</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="metric"><strong>99.9%</strong> Uptime</div>
+        <div class="metric"><strong>-85%</strong> Setup time</div>
+        <div class="metric"><strong>5x</strong> Scalability</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">💸</div>
+        <div class="proj-date">2024</div>
+      </div>
+      <div class="proj-title">Expense Tracker</div>
+      <div class="proj-desc">Feature-rich React expense manager with category filtering, sorting, offline local storage persistence, and interactive pie chart visualization.</div>
+      <div class="proj-tags">
+        <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Chakra UI</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="metric"><strong>+70%</strong> Data retrieval speed</div>
+        <div class="metric"><strong>+60%</strong> Visual insights</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-tag">// skills</div>
+  <h2 class="section-title">Tech Stack</h2>
+  <div class="skills-section reveal">
+    <div class="skill-group">
+      <div class="skill-group-label">Languages</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Frontend</div>
+      <div class="skill-pills">
+        <span class="skill-pill">React.js</span>
+        <span class="skill-pill">HTML/CSS</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">Bootstrap</span>
+        <span class="skill-pill">Chakra UI</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">AI / ML</div>
+      <div class="skill-pills">
+        <span class="skill-pill">TensorFlow</span>
+        <span class="skill-pill">Keras</span>
+        <span class="skill-pill">OpenCV</span>
+        <span class="skill-pill">GenAI APIs</span>
+        <span class="skill-pill">CNN</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Cloud & DevOps</div>
+      <div class="skill-pills">
+        <span class="skill-pill">AWS</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">Terraform</span>
+        <span class="skill-pill">Jenkins</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Tools & Other</div>
+      <div class="skill-pills">
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">Agile / Scrum</span>
+        <span class="skill-pill">SDLC</span>
+        <span class="skill-pill">Appwrite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section>
+  <div class="section-tag">// certifications</div>
+  <h2 class="section-title">Certified In</h2>
+  <div class="cert-grid reveal">
+    <div class="cert-card">
+      <div class="cert-icon">☁️</div>
+      <div>
+        <div class="cert-name">AWS Academy: Machine Learning Foundations</div>
+        <div class="cert-issuer">Amazon Web Services</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏛️</div>
+      <div>
+        <div class="cert-name">OCI 2024 Certified AI Foundations Associate</div>
+        <div class="cert-issuer">Oracle Cloud Infrastructure</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏛️</div>
+      <div>
+        <div class="cert-name">OCI 2024 Certified Foundations Associate</div>
+        <div class="cert-issuer">Oracle Cloud Infrastructure</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">Virtual Internship in Generative AI</div>
+        <div class="cert-issuer">AICTE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Extras -->
+<section>
+  <div class="section-tag">// beyond code</div>
+  <h2 class="section-title">Extracurriculars</h2>
+  <div class="extras-list">
+    <div class="extra-item">
+      <div class="extra-dot"></div>
+      <div>Wrote and self-published the novel <strong style="color:var(--text)">"Call of Regrets"</strong> on Amazon — from concept to publication.</div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-dot"></div>
+      <div>Achieved a <strong style="color:var(--text)">96% response rate</strong> addressing international student inquiries, significantly enhancing satisfaction.</div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-dot"></div>
+      <div>Advocated for grassroots issues, leading to a <strong style="color:var(--text)">15% reduction</strong> in unresolved student queries.</div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-dot"></div>
+      <div>Led the cultural committee in organizing a successful international cultural program — managing logistics, rehearsals, and multi-cultural performances.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-tag">// contact</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <div class="contact-section">
+    <p style="font-size:0.85rem;color:var(--muted);line-height:1.7">Open to SDE internships, full-stack roles, and AI/ML opportunities. Feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:Bijendrayadav0724@gmail.com" class="contact-link">
+        <span class="contact-label">Email</span>
+        Bijendrayadav0724@gmail.com
+      </a>
+      <a href="tel:+919058243910" class="contact-link">
+        <span class="contact-label">Phone</span>
+        +91-9058243910
+      </a>
+      <a href="https://linkedin.com" class="contact-link" target="_blank">
+        <span class="contact-label">LinkedIn</span>
+        linkedin.com/in/bijendrayadav
+      </a>
+      <a href="https://github.com" class="contact-link" target="_blank">
+        <span class="contact-label">GitHub</span>
+        github.com/bijendrayadav
+      </a>
+      <a href="https://leetcode.com" class="contact-link" target="_blank">
+        <span class="contact-label">LeetCode</span>
+        leetcode.com/bijendrayadav
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume">
+  <div class="section-tag">// resume</div>
+  <h2 class="section-title">My Resume</h2>
+
+  <div class="resume-wrapper">
+    <div class="resume-toolbar">
+      <div class="resume-toolbar-left">
+        <div class="resume-dot"></div>
+        <span>Bijendra_Yadav_Resume.pdf</span>
+      </div>
+      <div class="resume-actions">
+        <a href="#" class="resume-btn resume-btn-ghost" onclick="openFullscreen(); return false;">⤢ Fullscreen</a>
+        <a id="download-btn" href="https://drive.google.com/uc?export=download&id=1G6PJSmk8Nz7NTqlOJc0lmasmE5k7eFLo" download="Bijendra_Yadav_Resume.pdf" class="resume-btn resume-btn-primary">↓ Download</a>
+      </div>
+    </div>
+
+    <!-- Embedded viewer — replace the src URL with your hosted PDF link -->
+    <iframe
+      id="resume-frame"
+      class="resume-embed"
+      src="https://drive.google.com/file/d/1G6PJSmk8Nz7NTqlOJc0lmasmE5k7eFLo/preview"
+      title="Bijendra Yadav Resume"
+      allow="autoplay"
+    ></iframe>
+
+    <!-- Fallback shown via JS if needed -->
+    <div class="resume-fallback" id="resume-fallback">
+      <p>To display your resume here, host your PDF on Google Drive or any file host and paste the link below.</p>
+      <div class="resume-url-box">
+        <div class="resume-url-label">How to get your Google Drive link</div>
+        Upload PDF → Right-click → Share → Anyone with the link → Copy link<br/>
+        Then replace YOUR_FILE_ID in the iframe src above with your file's ID.
+      </div>
+      <a href="#" class="resume-btn resume-btn-primary" id="view-btn" target="_blank">Open Resume ↗</a>
+    </div>
+  </div>
+
+  
+</section>
+
+<footer>
+  <div>© 2025 Bijendra Yadav — Built with passion, shipped with purpose.</div>
+  <div style="color:var(--accent2)">Chennai, Tamil Nadu 🇮🇳</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
