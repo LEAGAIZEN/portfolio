@@ -1,3 +1,5 @@
+// updates made
+
 import React, { useState, useEffect } from 'react';
 import { Mail, Send, Trash2, Check, Inbox, Sparkles, SendHorizontal } from 'lucide-react';
 import { Message } from '../types';

@@ -1,4 +1,5 @@
 {
+  "note": "updates made",
   "name": "Portfolio App",
   "description": "A desktop-style portfolio for Bijendra Yadav built with React, TypeScript, and Vite.",
   "requestFramePermissions": [],

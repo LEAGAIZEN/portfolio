@@ -1,3 +1,5 @@
+// updates made
+
 import { useState, useRef, useEffect } from 'react';
 import { 
   FileText, Download, Printer, ZoomIn, ZoomOut, Search, 

@@ -1,3 +1,5 @@
+<!-- updates made -->
+
 # Portfolio App
 
 An interactive portfolio built with React, TypeScript, Vite, Tailwind CSS, and Motion. The app presents a desktop-style interface with draggable windows, a dock, system states, and custom project sections for About, Projects, Skills, Certifications, Resume, and Contact.

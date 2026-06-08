@@ -1,3 +1,5 @@
+// updates made
+
 import React, { useState, useEffect } from 'react';
 import { Wifi, Battery, BatteryCharging, Monitor, Lock, Shield, Sparkles, LogOut, RefreshCw } from 'lucide-react';
 

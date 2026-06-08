@@ -1,3 +1,5 @@
+// updates made
+
 import { motion } from 'motion/react';
 import { 
   FolderOpen, Code2, Terminal, Award, FileText, Mail, Trash2 

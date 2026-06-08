@@ -1,3 +1,5 @@
+// updates made
+
 import { Award, ShieldCheck, ExternalLink, Calendar, Search, Sparkles } from 'lucide-react';
 import { Certification } from '../types';
 

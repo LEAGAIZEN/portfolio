@@ -1,3 +1,5 @@
+// updates made
+
 export type WindowID = 'about' | 'projects' | 'skills' | 'certifications' | 'resume' | 'contact';
 
 export interface WindowState {

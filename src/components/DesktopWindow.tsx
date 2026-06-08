@@ -1,3 +1,5 @@
+// updates made
+
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Maximize2, Minimize2, X, Scaling } from 'lucide-react';

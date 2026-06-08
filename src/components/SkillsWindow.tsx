@@ -1,3 +1,5 @@
+// updates made
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, Cpu, Layout, Cloud, Hammer, Command, Sparkles } from 'lucide-react';
 import { SkillCategory } from '../types';

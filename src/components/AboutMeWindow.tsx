@@ -1,3 +1,5 @@
+// updates made
+
 import { BookOpen, GraduationCap, MapPin, Phone, Mail, Award, Sparkles } from 'lucide-react';
 
 export default function AboutMeWindow() {
