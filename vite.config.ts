@@ -1,3 +1,5 @@
+// commit message: updates made
+
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
