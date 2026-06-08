@@ -1,0 +1,6 @@
+{
+  "name": "DevOS Pro",
+  "description": "An immersive, high-fidelity developer desktop operating system portfolio for Bijendra Yadav.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

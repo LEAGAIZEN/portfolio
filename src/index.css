@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-primary: #c2c1ff;
+  --color-primary-dark: #7c77ff;
+  --color-secondary: #adc6ff;
+  --color-tertiary: #e8b3ff;
+  --color-bg-dark: #0c0c0e;
+  --color-surface-dark: #16161a;
+  --color-accent-blue: #4f4ccd;
+  
+  --animate-float-laptop: float-laptop 6s ease-in-out infinite;
+}
+
+@keyframes float-laptop {
+  0% { transform: rotateX(4deg) translateY(0px); }
+  50% { transform: rotateX(4deg) translateY(-10px); }
+  100% { transform: rotateX(4deg) translateY(0px); }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(22, 22, 26, 0.65);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-window {
+  background: rgba(18, 18, 22, 0.82);
+  backdrop-filter: blur(36px) saturate(160%);
+  -webkit-backdrop-filter: blur(36px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.85);
+}
+
+.glass-bar {
+  background: rgba(15, 15, 18, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Custom Webkit scrollbar for premium terminal lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* CRT monitor lines and flickering logic for a retro style terminal context (optional) */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg, 
+    rgba(255, 0, 0, 0.06), 
+    rgba(0, 255, 0, 0.02), 
+    rgba(0, 0, 255, 0.06)
+  );
+  background-size: 100% 4px, 6px 100%;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(194, 193, 255, 0.2);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(173, 198, 255, 0.2);
+}
+
+.glow-text-primary {
+  text-shadow: 0 0 8px rgba(194, 193, 255, 0.4);
+}
+
+/* No selection text */
+.select-none {
+  user-select: none;
+  -webkit-user-select: none;
+}
