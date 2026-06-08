@@ -58,4 +58,4 @@ npm run preview
 
 ## Notes
 
-This repository now documents the app as a standalone portfolio project.
+This repository now documents the app as a standalone portfolio project and this commit serves as the final release update.

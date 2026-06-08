@@ -1,6 +1,6 @@
 {
-  "name": "DevOS Pro",
-  "description": "An immersive, high-fidelity developer desktop operating system portfolio for Bijendra Yadav.",
+  "name": "Portfolio App",
+  "description": "A desktop-style portfolio for Bijendra Yadav built with React, TypeScript, and Vite.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
