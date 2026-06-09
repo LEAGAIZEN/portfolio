@@ -512,3 +512,52 @@
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
   }
+
+  /* Additional responsive & mobile-friendly overrides */
+  @media (max-width: 900px) {
+    /* Tone down heavy decorations on smaller tablets */
+    .orb, .orb2, .orb3 { display: none; }
+    #bg-canvas { display: none; }
+  }
+
+  @media (max-width: 700px) {
+    /* Simplify header/nav for narrow viewports */
+    .nav-links { display: none; }
+    .nav-logo { font-size: 1rem; }
+    .hero { padding: 5rem 1rem 2.5rem; }
+    .hero-inner { max-width: 100%; }
+    .hero-sub { max-width: 100%; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    /* Touch-friendly and cramped-screen adjustments */
+    body { cursor: auto; overflow-x: hidden; }
+    .cursor, .cursor-ring { display: none; }
+
+    nav { padding: 0.9rem 1rem; }
+    .hero { padding: 3.5rem 1rem 2rem; min-height: auto; }
+    .hero h1 { font-size: clamp(2.2rem, 9vw, 3.6rem); }
+    .hero-tag { font-size: 0.68rem; }
+
+    /* Cards and lists should compress spacing */
+    .exp-card, .proj-card, .cert-card { padding: 1rem; }
+    .exp-meta { gap: 0.5rem; }
+
+    /* Stats become stacked and full-width */
+    .stats-bar { width: 100%; max-width: 100%; }
+
+    /* Resume: show fallback on small screens for accessibility */
+    .resume-embed { display: none; }
+    .resume-fallback { display: block; }
+    .resume-wrapper { width: 100%; }
+
+    /* Contact and other sections should expand to fill viewport */
+    .contact-section, .skills-section, .cert-grid, .certifications-grid, .projects-grid { max-width: 100%; width: 100%; }
+
+    /* Reduce heavy shadows and animations on mobile for performance */
+    .proj-card:hover, .exp-card:hover, .cert-card:hover { transform: none; box-shadow: none; }
+
+    /* Make resize handles and window chrome more usable */
+    .win-btn { transform: none; }
+  }
