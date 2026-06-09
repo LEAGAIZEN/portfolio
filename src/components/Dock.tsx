@@ -19,6 +19,7 @@ export default function Dock({
   onIconClick,
   activeWindowId,
   resetWorkbench,
+  isLaptopMode = false,
 }: DockProps) {
   
   const dockItems = [
