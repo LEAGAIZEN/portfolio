@@ -286,36 +286,40 @@ export default function App() {
 
   // WINDOW TOGGLES OR LAUNCHERS FROM DOCK/DESKTOP
   const handleLaunchWindow = (id: WindowID) => {
-    setWindows((prev) =>
-      prev.map((w) => {
-        if (w.id === id) {
-          const wasOpen = w.isOpen;
-          const wasMin = w.isMinimized;
-          
-          if (!wasOpen) {
-            // Closed completely -> Launch fresh and focus
-            return { ...w, isOpen: true, isMinimized: false };
-          } else if (wasMin) {
-            // Is minimized -> Restore it and focus
-            return { ...w, isMinimized: false };
-          } else if (activeWindowId === id) {
-            // Already open and focused -> Minimize it
-            return { ...w, isMinimized: true };
-          }
-          // Open but not focused -> Focus handled by next function
-          return w;
+    const currentActive = activeWindowId;
+    setWindows((prev) => {
+      let shouldFocus = false;
+      const next = prev.map((w) => {
+        if (w.id !== id) return w;
+        // closed -> open and focus
+        if (!w.isOpen) {
+          shouldFocus = true;
+          return { ...w, isOpen: true, isMinimized: false };
         }
+        // minimized -> restore and focus
+        if (w.isMinimized) {
+          shouldFocus = true;
+          return { ...w, isMinimized: false };
+        }
+        // open and not minimized
+        if (currentActive === id) {
+          // already focused -> minimize
+          return { ...w, isMinimized: true };
+        }
+        // open but not focused -> focus
+        shouldFocus = true;
         return w;
-      })
-    );
+      });
 
-    const targetWin = windows.find(w => w.id === id);
-    if (targetWin?.isOpen && !targetWin.isMinimized && activeWindowId === id) {
-      // Minimize if same app clicked in focus
-      setActiveWindowId(null);
-    } else {
-      handleFocusWindow(id);
-    }
+      // update active window based on desired action
+      if (shouldFocus) {
+        setActiveWindowId(id);
+      } else {
+        setActiveWindowId(null);
+      }
+
+      return next;
+    });
   };
 
   const handleCloseWindow = (id: WindowID) => {
