@@ -288,12 +288,18 @@ export default function App() {
   const handleLaunchWindow = (id: WindowID) => {
     setWindows((prev) => {
       const maxZ = Math.max(...prev.map(w => w.zIndex), 10);
+      const openCount = prev.filter(w => w.isOpen && !w.isMinimized).length;
+      const cascadeOffsetX = 28;
+      const cascadeOffsetY = 20;
+
       const next = prev.map((w) => {
         if (w.id !== id) return w;
-        // closed -> open and focus (bring to front)
+        // closed -> open and focus (bring to front) with cascading offset
         if (!w.isOpen) {
+          const newX = (w.initialX ?? 140) + openCount * cascadeOffsetX;
+          const newY = (w.initialY ?? 48) + openCount * cascadeOffsetY;
           setActiveWindowId(id);
-          return { ...w, isOpen: true, isMinimized: false, zIndex: maxZ + 1 };
+          return { ...w, isOpen: true, isMinimized: false, zIndex: maxZ + 1, initialX: newX, initialY: newY };
         }
         // minimized -> restore and focus
         if (w.isMinimized) {
