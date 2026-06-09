@@ -11,6 +11,7 @@ interface DockProps {
   onIconClick: (id: WindowID) => void;
   activeWindowId: WindowID | null;
   resetWorkbench: () => void;
+  isLaptopMode?: boolean;
 }
 
 export default function Dock({
@@ -60,8 +61,8 @@ export default function Dock({
   ];
 
   return (
-    <div className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-[200] select-none">
-      <div className="glass-panel flex items-center gap-2 px-3 py-2 rounded-xl shadow-2xl relative border border-white/20 overflow-hidden max-w-xl">
+    <div className={`${isLaptopMode ? 'absolute' : 'fixed'} ${isLaptopMode ? 'bottom-4 left-1/2 -translate-x-1/2' : 'bottom-3.5 left-1/2 -translate-x-1/2'} z-[200] select-none`}>
+      <div className="glass-panel flex items-center gap-3.5 px-4.5 py-2.5 rounded-2xl shadow-2xl relative border border-white/20 overflow-hidden max-w-xl">
         
         {/* Floor Reflections shadow effect */}
         <div className="absolute inset-x-8 -bottom-1 h-3 bg-[#e0e2ff]/5 blur-lg rounded-full pointer-events-none"></div>
@@ -77,9 +78,9 @@ export default function Dock({
             <motion.button
               key={item.id}
               onClick={() => onIconClick(item.id)}
-              whileHover={{ scale: 1.12, y: -4 }}
+              whileHover={{ scale: 1.18, y: -6 }}
               whileTap={{ scale: 0.94 }}
-              className={`relative p-1.5 h-10 w-10 rounded-lg border flex items-center justify-center transition-all duration-200 group cursor-pointer origin-bottom ${
+              className={`relative p-2.5 h-11.5 w-11.5 rounded-xl border flex items-center justify-center transition-all duration-200 group cursor-pointer origin-bottom ${
                 isActiveFocus 
                   ? 'bg-white/18 border-white/25 shadow-md shadow-black/40 glow-primary' 
                   : 'bg-white/4 border-white/5 hover:bg-white/10 hover:border-white/12'

@@ -621,6 +621,7 @@ export default function App() {
             onIconClick={handleLaunchWindow}
             activeWindowId={activeWindowId}
             resetWorkbench={resetWorkbench}
+            isLaptopMode={isLaptopMode}
           />
 
         </div>
