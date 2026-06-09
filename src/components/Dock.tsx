@@ -60,8 +60,8 @@ export default function Dock({
   ];
 
   return (
-    <div className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-[200] select-none">
-      <div className="glass-panel flex items-center gap-3.5 px-4.5 py-2.5 rounded-2xl shadow-2xl relative border border-white/20">
+    <div className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-20 select-none">
+      <div className="glass-panel flex items-center gap-3.5 px-4.5 py-2.5 rounded-2xl shadow-2xl relative border border-white/20 overflow-hidden">
         
         {/* Floor Reflections shadow effect */}
         <div className="absolute inset-x-8 -bottom-1 h-3 bg-[#e0e2ff]/5 blur-lg rounded-full pointer-events-none"></div>
@@ -77,7 +77,7 @@ export default function Dock({
             <motion.button
               key={item.id}
               onClick={() => onIconClick(item.id)}
-              whileHover={{ scale: 1.18, y: -6 }}
+              whileHover={{ scale: 1.15, y: -6 }}
               whileTap={{ scale: 0.94 }}
               className={`relative p-2.5 h-11.5 w-11.5 rounded-xl border flex items-center justify-center transition-all duration-200 group cursor-pointer ${
                 isActiveFocus 
@@ -113,9 +113,9 @@ export default function Dock({
         {/* Trash / Reset system shortcut */}
         <motion.button
           onClick={resetWorkbench}
-          whileHover={{ scale: 1.15, y: -4 }}
+          whileHover={{ scale: 1.12, y: -3 }}
           whileTap={{ scale: 0.95 }}
-          className="relative p-2.5 h-11.5 w-11.5 rounded-xl bg-whites/4 border border-white/5 hover:bg-rose-500/10 hover:border-rose-500/20 text-slate-400 hover:text-rose-400 cursor-pointer flex items-center justify-center group"
+          className="relative p-2.5 h-11.5 w-11.5 rounded-xl bg-white/4 border border-white/5 hover:bg-rose-500/10 hover:border-rose-500/20 text-slate-400 hover:text-rose-400 cursor-pointer flex items-center justify-center group"
           title="Reset Workplace configurations"
         >
           <Trash2 className="w-5.5 h-5.5" />

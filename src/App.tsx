@@ -36,10 +36,10 @@ export default function App() {
       isOpen: true,
       isMinimized: false,
       isMaximized: false,
-      initialX: 180,
-      initialY: 48,
-      width: 610,
-      height: 440,
+        initialX: 140,
+        initialY: 48,
+        width: 760,
+        height: 520,
       zIndex: 100,
       iconName: 'folder_open',
     },
@@ -286,37 +286,29 @@ export default function App() {
 
   // WINDOW TOGGLES OR LAUNCHERS FROM DOCK/DESKTOP
   const handleLaunchWindow = (id: WindowID) => {
-    const currentActive = activeWindowId;
     setWindows((prev) => {
-      let shouldFocus = false;
+      const maxZ = Math.max(...prev.map(w => w.zIndex), 10);
       const next = prev.map((w) => {
         if (w.id !== id) return w;
-        // closed -> open and focus
+        // closed -> open and focus (bring to front)
         if (!w.isOpen) {
-          shouldFocus = true;
-          return { ...w, isOpen: true, isMinimized: false };
+          setActiveWindowId(id);
+          return { ...w, isOpen: true, isMinimized: false, zIndex: maxZ + 1 };
         }
         // minimized -> restore and focus
         if (w.isMinimized) {
-          shouldFocus = true;
-          return { ...w, isMinimized: false };
+          setActiveWindowId(id);
+          return { ...w, isMinimized: false, zIndex: maxZ + 1 };
         }
-        // open and not minimized
-        if (currentActive === id) {
-          // already focused -> minimize
+        // open and focused -> minimize
+        if (activeWindowId === id) {
+          setActiveWindowId(null);
           return { ...w, isMinimized: true };
         }
-        // open but not focused -> focus
-        shouldFocus = true;
-        return w;
-      });
-
-      // update active window based on desired action
-      if (shouldFocus) {
+        // open but not focused -> bring to front
         setActiveWindowId(id);
-      } else {
-        setActiveWindowId(null);
-      }
+        return { ...w, zIndex: maxZ + 1 };
+      });
 
       return next;
     });
