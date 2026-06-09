@@ -11,6 +11,7 @@ interface DockProps {
   onIconClick: (id: WindowID) => void;
   activeWindowId: WindowID | null;
   resetWorkbench: () => void;
+  isLaptopMode?: boolean;
 }
 
 export default function Dock({
@@ -18,6 +19,7 @@ export default function Dock({
   onIconClick,
   activeWindowId,
   resetWorkbench,
+  isLaptopMode = false,
 }: DockProps) {
   
   const dockItems = [
@@ -59,8 +61,13 @@ export default function Dock({
     },
   ];
 
+  // Position dock inside laptop container when in laptop mode so it doesn't overlap the footer.
+  const outerClass = isLaptopMode
+    ? 'absolute bottom-6 left-1/2 -translate-x-1/2 z-20 select-none'
+    : 'fixed bottom-3.5 left-1/2 -translate-x-1/2 z-20 select-none';
+
   return (
-    <div className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-20 select-none">
+    <div className={outerClass}>
       <div className="glass-panel flex items-center gap-3.5 px-4.5 py-2.5 rounded-2xl shadow-2xl relative border border-white/20 overflow-hidden">
         
         {/* Floor Reflections shadow effect */}

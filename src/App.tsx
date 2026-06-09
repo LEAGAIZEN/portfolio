@@ -508,8 +508,8 @@ export default function App() {
         />
 
         {/* CORE WORKBENCH STAGE WITH WALLPAPER */}
-        <div 
-          className="flex-grow w-full relative z-10 pt-8 flex items-start justify-start overflow-hidden bg-cover bg-center"
+          <div 
+            className="flex-grow w-full relative z-10 pt-8 flex items-start justify-start overflow-hidden bg-cover bg-center pb-24"
           style={{
             backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuD75CMkNjXdNTFn5q2J8HrZbkuLC8LDaypk0-3bpKhc7bbJR4DBydW0FicEXSjWp47Fho0F9FWD1Qkw4L1zgs_m6Lou4YJmzifRvN7jaJq8nS1_nKtm5tgKNBn8pt0gKdE6UwBXDoTyfclBbxZ2pGQsLBWgX8PAZE1AiH7W_1pbgrTObj3x7GrURftscLove1kcCDWHeamaF_jQ6xwBLiiPPthbf9nDvarSHwDRZNTXS2h7QcDwH_nxKTWXxx4UTlQpbwVPjgC9i64')`,
             backgroundBlendMode: 'overlay',

@@ -84,17 +84,24 @@ export default function DesktopWindow({
       const dy = e.clientY - dragStart.current.y;
       
       // Calculate new position (stay inside screen loosely)
+      const DOCK_SAFE = 96; // pixels reserved at bottom for dock
       const newX = Math.max(-size.width + 100, Math.min(window.innerWidth - 80, positionStart.current.x + dx));
-      const newY = Math.max(32, Math.min(window.innerHeight - 80, positionStart.current.y + dy));
-      
+      // Ensure window bottom doesn't go below the dock safe area
+      const maxTop = window.innerHeight - DOCK_SAFE - size.height;
+      const newY = Math.max(32, Math.min(maxTop, positionStart.current.y + dy));
+
       setPosition({ x: newX, y: newY });
     } else if (isResizing) {
       const dx = e.clientX - dragStart.current.x;
       const dy = e.clientY - dragStart.current.y;
       
+      const DOCK_SAFE = 96;
       const newWidth = Math.max(380, Math.min(1600, sizeStart.current.width + dx));
-      const newHeight = Math.max(280, Math.min(1200, sizeStart.current.height + dy));
-      
+      // Prevent resize from extending into dock area
+      const maxHeight = Math.max(280, window.innerHeight - DOCK_SAFE - position.y - 40);
+      const newHeightUnclamped = sizeStart.current.height + dy;
+      const newHeight = Math.max(280, Math.min(maxHeight, newHeightUnclamped));
+
       setSize({ width: newWidth, height: newHeight });
     }
   };
