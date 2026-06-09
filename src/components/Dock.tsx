@@ -63,7 +63,7 @@ export default function Dock({
 
   return (
     <div className={`${isLaptopMode ? 'absolute' : 'fixed'} ${isLaptopMode ? 'bottom-4 left-1/2 -translate-x-1/2' : 'bottom-3.5 left-1/2 -translate-x-1/2'} z-[200] select-none`}>
-      <div className="glass-panel flex items-center gap-3.5 px-6 py-2.5 rounded-2xl shadow-2xl relative border border-white/20 overflow-hidden max-w-xl">
+      <div className="glass-panel flex items-center gap-3.5 px-8 py-2.5 rounded-2xl shadow-2xl relative border border-white/20 overflow-hidden max-w-xl">
         
         {/* Floor Reflections shadow effect */}
         <div className="absolute inset-x-8 -bottom-1 h-3 bg-[#e0e2ff]/5 blur-lg rounded-full pointer-events-none"></div>
@@ -79,9 +79,9 @@ export default function Dock({
             <motion.button
               key={item.id}
               onClick={() => onIconClick(item.id)}
-              whileHover={{ scale: 1.18, y: -6 }}
+              whileHover={{ scale: 1.18, y: -5 }}
               whileTap={{ scale: 0.94 }}
-              className={`relative p-2.5 h-11.5 w-11.5 rounded-xl border flex items-center justify-center transition-all duration-200 group cursor-pointer origin-bottom first:ml-1 last:mr-1 ${
+              className={`relative p-2.5 h-11.5 w-11.5 rounded-xl border flex items-center justify-center transition-all duration-200 group cursor-pointer origin-bottom first:ml-2 last:mr-2 ${
                 isActiveFocus 
                   ? 'bg-white/18 border-white/25 shadow-md shadow-black/40 glow-primary' 
                   : 'bg-white/4 border-white/5 hover:bg-white/10 hover:border-white/12'
