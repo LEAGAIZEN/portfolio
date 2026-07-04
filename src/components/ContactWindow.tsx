@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Send, Trash2, Check, Inbox, Sparkles, SendHorizontal } from 'lucide-react';
 import { Message } from '../types';
 
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/bijendrayadav0724@gmail.com';
+
 export default function ContactWindow() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeMsgId, setActiveMsgId] = useState<string | null>(null);
@@ -15,6 +17,7 @@ export default function ContactWindow() {
   const [content, setContent] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   // Sync to localStorage
   useEffect(() => {
@@ -45,13 +48,53 @@ export default function ContactWindow() {
     }
   }, []);
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !subject || !content) return;
 
     setIsSending(true);
+    setSendError(null);
+    setShowSuccess(false);
 
-    setTimeout(() => {
+    try {
+      const submittedAt = new Date().toLocaleString();
+      const sourcePage = window.location.href;
+      const fullPayload = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Subject: ${subject}`,
+        `Submitted At: ${submittedAt}`,
+        `Source Page: ${sourcePage}`,
+        '',
+        'Message:',
+        content
+      ].join('\n');
+
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message: content,
+          submitted_at: submittedAt,
+          source_page: sourcePage,
+          full_payload: fullPayload,
+          _subject: `Portfolio Contact: ${subject}`,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      const result = await response.json();
+      if (!response.ok || result.success === false || result.success === 'false') {
+        throw new Error(result.message || 'FormSubmit request failed');
+      }
+
       const newMsg: Message = {
         id: Date.now().toString(),
         senderName: name,
@@ -79,7 +122,12 @@ export default function ContactWindow() {
         setShowSuccess(false);
       }, 3000);
 
-    }, 1200);
+    } catch (error) {
+      console.error('Failed to send message', error);
+      setSendError('Message could not be sent. Open your first FormSubmit verification email, then try again.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleDeleteMessage = (id: string, e: React.MouseEvent) => {
@@ -260,11 +308,11 @@ export default function ContactWindow() {
                 {showSuccess ? (
                   <span className="text-[10px] font-mono font-bold text-emerald-400 flex items-center gap-1 bg-emerald-500/10 px-3 py-1.5 rounded border border-emerald-500/25">
                     <Check size={11} className="stroke-[3]" />
-                    <span>Message routed successfully!</span>
+                    <span>Message sent to my Gmail inbox.</span>
                   </span>
                 ) : (
                   <span className="text-[9.5px] font-mono text-slate-500 italic">
-                    Saved locally to browser LocalStorage on send.
+                    Free FormSubmit relay sends to Gmail and mirrors this local outbox.
                   </span>
                 )}
 
@@ -286,6 +334,12 @@ export default function ContactWindow() {
                   )}
                 </button>
               </div>
+
+              {sendError && (
+                <div className="text-[10px] font-mono text-rose-300 bg-rose-500/10 border border-rose-500/25 rounded px-3 py-2">
+                  {sendError}
+                </div>
+              )}
             </form>
           </div>
 

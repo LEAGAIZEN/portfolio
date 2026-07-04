@@ -24,6 +24,17 @@ An interactive portfolio built with React, TypeScript, Vite, Tailwind CSS, and M
 npm install
 ```
 
+### Configure Contact Form Email (Gmail)
+
+This portfolio uses FormSubmit to relay contact form submissions to Gmail for free.
+
+1. Open the app and submit the contact form once.
+2. Check your Gmail inbox for a FormSubmit verification email.
+3. Click the verification link in that email.
+4. Submit the form again. Messages will now arrive in your inbox.
+
+No API keys are required for this setup.
+
 ### Run
 
 ```bash
